@@ -7,3 +7,4 @@ database:
  sslmode: "disable"
  time_zone: "Asia/Tehran"
  charset: "utf8mb4"
+ 
