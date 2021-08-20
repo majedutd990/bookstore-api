@@ -8,7 +8,7 @@ import (
 
 func init() {
 	var cfg *config.Config
-	if err := config.ReadFile(cfg); err != nil {
+	if err := config.Parser("../../build/config/config.yaml", cfg); err != nil {
 		log.Fatalln(err)
 	}
 	if err := config.ReadEnv(cfg); err != nil {
