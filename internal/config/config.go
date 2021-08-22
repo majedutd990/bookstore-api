@@ -3,6 +3,7 @@ package config
 type (
 	Config struct {
 		Database Database `yaml:"database"`
+		I18n     I18n     `yaml:"i18n"`
 	}
 	Database struct {
 		Username string `yaml:"username"`
@@ -13,5 +14,9 @@ type (
 		SSLMode  string `yaml:"sslmode"`
 		Charset  string `yaml:"charset"`
 		Timezone string `yaml:"time_zone"`
+	}
+
+	I18n struct {
+		BundlePath string `yaml:"bundle_path"`
 	}
 )

@@ -3,11 +3,13 @@ package main
 import (
 	"log"
 
+	"github.com/majedutd990/bookstore-api/internal/application"
 	"github.com/majedutd990/bookstore-api/internal/config"
 )
 
+var cfg = &config.Config{}
+
 func init() {
-	var cfg *config.Config
 	if err := config.Parser("../../build/config/config.yaml", cfg); err != nil {
 		log.Fatalln(err)
 	}
@@ -18,5 +20,7 @@ func init() {
 }
 
 func main() {
-
+	if err := application.Run(cfg); err != nil {
+		log.Fatalln(err)
+	}
 }
