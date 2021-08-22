@@ -1,1 +1,22 @@
-NoUserFound = "No User Found"
+# invalid
+InvalidWalletStatus = "invalid wallet status"
+InvalidUserStatus = "invalid user status"
+InvalidBookStatus = "invalid book status"
+InvalidGender = "invalid gender"
+InvalidRole = "invalid role"
+InvalidUsernameLength = "invalid username length"
+InvalidPassword = "invalid password"
+InvalidToken = "invalid token"
+InvalidDeliveryChannel = "invalid delivery channel"
+InvalidNotificationStatus = "invalid notification status"
+
+# general
+DBError = "error is exist"
+GeneralError = "error is exist"
+ParseQueryError = "parse query error"
+NotPermission = "not have permission to access"
+
+# user
+UserNotFound = "user not found"
+UsernameIsDuplicate = "username is duplicate"
+UsernameOrPasswordIsIncorrect = "username or password is incorrect"

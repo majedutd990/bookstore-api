@@ -3,7 +3,7 @@ package config
 import (
 	"errors"
 	"os"
-	"strings"
+	"path/filepath"
 
 	"github.com/kelseyhightower/envconfig"
 	"gopkg.in/yaml.v3"
@@ -18,7 +18,7 @@ var (
 
 // parses path of the config file
 func Parser(path string, cfg *Config) error {
-	switch fileExtension(path) {
+	switch filepath.Ext(path) {
 	case "yaml", "yml":
 		return parseYaml(path, cfg)
 	default:
@@ -49,10 +49,4 @@ func ReadEnv(cfg *Config) error {
 }
 func SetConfig(c *Config) {
 	cfg = c
-}
-
-// extracting file extension
-func fileExtension(path string) string {
-	s := strings.Split(path, ".")
-	return s[len(s)-1]
 }
