@@ -4,6 +4,8 @@ type (
 	UserStatus uint
 
 	Gender uint
+
+	Role uint
 )
 
 const (
@@ -18,4 +20,12 @@ const (
 	Male
 	Female
 	More
+)
+
+const (
+	_ Role = iota
+	Basic
+	Seller
+	Manager
+	Admin
 )
