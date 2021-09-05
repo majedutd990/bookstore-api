@@ -2,8 +2,9 @@ package application
 
 import (
 	"github.com/majedutd990/bookstore-api/internal/config"
-	"github.com/majedutd990/bookstore-api/pkg/logger/logrus"
-	"github.com/majedutd990/bookstore-api/pkg/translator/i18n"
+	"github.com/majedutd990/bookstore-api/internal/db/postgres"
+	"github.com/majedutd990/bookstore-api/pkg/log/logrus"
+	"github.com/majedutd990/bookstore-api/pkg/translate/i18n"
 )
 
 func Run(cfg *config.Config) error {
@@ -24,11 +25,13 @@ func Run(cfg *config.Config) error {
 	}
 	_ = translator
 	_ = logger
+	repository, err := postgres.New(cfg, translator, logger)
+	_ = repository
 	return nil
 }
 
 // How to Use Logger
-// log.Error(logger.LogFields{
+// log.Error(log.LogFields{
 // 	Section:  "application.go",
 // 	Function: "Runs",
 // 	Params:   "Config",

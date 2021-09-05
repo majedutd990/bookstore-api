@@ -5,16 +5,15 @@ import (
 
 	"github.com/alecthomas/units"
 	rotators "github.com/lestrrat-go/file-rotatelogs"
-	"github.com/majedutd990/bookstore-api/pkg/logger"
+	"github.com/majedutd990/bookstore-api/pkg/log"
 	"github.com/sirupsen/logrus"
-	"github.com/xhit/go-str2duration/v2"
 )
 
 type logBundle struct {
 	logger *logrus.Logger
 }
 
-func New(path, pattern, maxAgeStr, rotationTimeStr, rotationSizeStr string) (logger.Logger, error) {
+func New(path, pattern, maxAgeStr, rotationTimeStr, rotationSizeStr string) (log.Logger, error) {
 
 	l := &logBundle{logger: logrus.New()}
 	writer, err := getLoggerWriter(path, pattern, maxAgeStr, rotationTimeStr, rotationSizeStr)
@@ -55,21 +54,21 @@ func getLoggerWriter(path, pattern, maxAgeStr, rotationTimeStr, rotationSizeStr 
 	return writer, nil
 }
 
-func (l *logBundle) Error(fields logger.LogFields) {
+func (l *logBundle) Error(fields log.LogFields) {
 	l.logger.WithFields(logrus.Fields{
 		"section":  fields.Section,
 		"function": fields.Function,
 		"params":   fields.Params,
 	}).Error(fields.Message)
 }
-func (l *logBundle) Info(fields logger.LogFields) {
+func (l *logBundle) Info(fields log.LogFields) {
 	l.logger.WithFields(logrus.Fields{
 		"section":  fields.Section,
 		"function": fields.Function,
 		"params":   fields.Params,
 	}).Info(fields.Message)
 }
-func (l *logBundle) Warning(fields logger.LogFields) {
+func (l *logBundle) Warning(fields log.LogFields) {
 	l.logger.WithFields(logrus.Fields{
 		"section":  fields.Section,
 		"function": fields.Function,

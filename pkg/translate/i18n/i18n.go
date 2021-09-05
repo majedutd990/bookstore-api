@@ -2,7 +2,7 @@ package i18n
 
 import (
 	"github.com/BurntSushi/toml"
-	"github.com/majedutd990/bookstore-api/pkg/translator"
+	"github.com/majedutd990/bookstore-api/pkg/translate"
 	"github.com/nicksnyder/go-i18n/v2/i18n"
 	"golang.org/x/text/language"
 )
@@ -11,7 +11,7 @@ type messageBundle struct {
 	bundle *i18n.Bundle
 }
 
-func New(path string) (translator.Translator, error) {
+func New(path string) (translate.Translator, error) {
 	bundle := &messageBundle{
 		bundle: i18n.NewBundle(language.English),
 	}
@@ -37,7 +37,7 @@ func (m *messageBundle) getLocalized(lang string) *i18n.Localizer {
 	return i18n.NewLocalizer(m.bundle, lang)
 }
 
-func (m *messageBundle) Translate(lang translator.Language, key string) string {
+func (m *messageBundle) Translate(lang translate.Language, key string) string {
 	message, err := m.getLocalized(string(lang)).Localize(&i18n.LocalizeConfig{
 		MessageID: key,
 	})

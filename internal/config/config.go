@@ -7,14 +7,15 @@ type (
 		Log      Log      `yaml:"log"`
 	}
 	Database struct {
-		Username string `yaml:"username"`
-		Password string `yaml:"password"`
-		DBName   string `yaml:"db_name"`
-		Host     string `yaml:"host"`
-		Port     string `yaml:"port"`
-		SSLMode  string `yaml:"sslmode"`
-		Charset  string `yaml:"charset"`
-		Timezone string `yaml:"time_zone"`
+		Username  string `yaml:"username"`
+		Password  string `yaml:"password"`
+		DBName    string `yaml:"db_name"`
+		Host      string `yaml:"host"`
+		Port      string `yaml:"port"`
+		SSLMode   string `yaml:"sslmode"`
+		Charset   string `yaml:"charset"`
+		Timezone  string `yaml:"time_zone"`
+		Migration bool   `yaml:"migration"`
 	}
 
 	I18n struct {

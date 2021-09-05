@@ -3,14 +3,14 @@ package i18n
 import (
 	"testing"
 
-	"github.com/majedutd990/bookstore-api/pkg/translator"
-	"github.com/majedutd990/bookstore-api/pkg/translator/messages"
+	"github.com/majedutd990/bookstore-api/pkg/translate"
+	"github.com/majedutd990/bookstore-api/pkg/translate/messages"
 )
 
 func TestMessageBundle_Translate(t *testing.T) {
 	type args struct {
 		message  string
-		language translator.Language
+		language translate.Language
 	}
 
 	tests := []struct {
@@ -22,21 +22,21 @@ func TestMessageBundle_Translate(t *testing.T) {
 			name: "translate farsi",
 			args: args{
 				message:  messages.DBError,
-				language: translator.Getlanguage("fa"),
+				language: translate.Getlanguage("fa"),
 			},
 			want: "خطایی وجود دارد",
 		}, {
 			name: "translate english",
 			args: args{
 				message:  messages.UserNotFound,
-				language: translator.Getlanguage("en"),
+				language: translate.Getlanguage("en"),
 			},
 			want: "user not found",
 		}, {
 			name: "message key not found",
 			args: args{
 				message:  "NoKeyFound",
-				language: translator.Getlanguage("en"),
+				language: translate.Getlanguage("en"),
 			},
 			want: "NoKeyFound",
 		},
